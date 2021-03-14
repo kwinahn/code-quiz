@@ -1,3 +1,4 @@
+// questions and answers
 let questions = [
   {
       title: "Commonly used data types DO NOT include:",
@@ -27,6 +28,7 @@ let questions = [
   
 ];
 
+// global variables
 let navBar = document.querySelector('nav');
 let highscoresBar = document.getElementById('highscores-bar');
 let container = document.getElementById('container');
@@ -42,13 +44,14 @@ let initials = document.getElementById('initials');
 let submitButton = document.getElementById('submit-button');
 
 //sets variables
+let scoreArray = [];
+let timerInterval = false;
 let timerSecs = 0;
 let currentQuestion = 0
 let score = 0;
-let scoreArray = [];
-let timerInterval = false;
 
-// starts game
+
+// 1.starts game
 function startQuiz() {
     // sets timer start at 75 seconds
     timerSecs = 75;
@@ -64,7 +67,7 @@ function startQuiz() {
     startButton.style.display = 'none';
 }
 
-// changes display to next question
+// 2.changes display to next question
 function nextQuestion() {
 
     // changes appearance of page
@@ -89,7 +92,8 @@ function nextQuestion() {
     }
 }
 
-// checks whether chosen answer is right
+
+///// 3.checks if selected answer is right ///////
 function checkAnswer(event) {
     // checking that the button and answer values are the same
     console.log('User chose: ' + event.target.textContent);
@@ -146,7 +150,7 @@ function checkAnswer(event) {
     }
 };
 
-// triggers end game page
+////// 4. triggers end game page   //////
 function endGame() {
     // changes page display
     quizAnswers.style.display = 'none';
@@ -168,12 +172,12 @@ function endGame() {
     submitButton.addEventListener('click', storeHighScore);
 }
 
-// stores input from initials input and puts it in local storage
+// 5. stores input from initials input and puts it in local storage
 // then takes user to high score page to see high scores
 function storeHighScore(event) {
     event.preventDefault();
 
-    // if no input is detected nothing happens
+    // if no input is detected -> nothing happens
     if (initials.value.length === 0) {
         return
     
@@ -196,12 +200,12 @@ function storeHighScore(event) {
     }
 }
 
-// initially load scores from local storage into scores array
+// 6. load scores from local storage into scores array
 function loadHighScore() {
     // parses string value from local storage into new array
     storedScores = JSON.parse(localStorage.getItem('score'));
 
-    // if new array isn't empty (no previously saved scores) then save into scoreArray
+    // if new array isn't empty (no previously saved scores) -> then save into scoreArray
     if (storedScores !== null) {
         scoreArray = storedScores;
 
@@ -210,7 +214,7 @@ function loadHighScore() {
     }
 }
 
-// shows highs scores page
+///// 7. shows highs scores page /////
 function seeHighScores() {
     // clears timerInterval if countdown has been initiated
     if (timerInterval) {
@@ -258,7 +262,7 @@ function seeHighScores() {
     });
 };
 
-// counts down from starting timerSecs 
+///// 8. counts down from starting timerSecs  /////
 function countdown() {
     // interval function that counts down
     timerInterval = setInterval(function() {
