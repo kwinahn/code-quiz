@@ -1,4 +1,4 @@
-# Password Generator 
+# Coding Quiz Challenge 
 [Link to deployed application](https://kwinahn.github.io/code-quiz/)
 
 ![Preview](./assets/code-quiz-screenshot.png)
