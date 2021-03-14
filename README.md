@@ -1,5 +1,5 @@
 # Password Generator 
-[Link to deployed application](https://kwinahn.github.io/pass-gen/)
+[Link to deployed application](https://kwinahn.github.io/code-quiz/)
 
 ![Preview](./assets/code-quiz-screenshot.png)
 ## Description: 
